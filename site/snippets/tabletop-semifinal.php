@@ -10,39 +10,39 @@
 // }
 
 var googledata={};
-var public_spreadsheet_url="https://sheets.googleapis.com/v4/spreadsheets/1qTXuL_zwbAqxsXbsLJ1bVC9bKMeKszVMN1UeJZC__Ys/values/{sheet_tab_name}/?key=AIzaSyCRlo0uTPnoL9Vz7pB5VMXg5FhHzPFla10";
+var public_spreadsheet_url="https://sheets.googleapis.com/v4/spreadsheets/"+public_spreadsheet_url+"/values/{sheet_tab_name}/?key=AIzaSyCRlo0uTPnoL9Vz7pB5VMXg5FhHzPFla10";
 var sheetnames=["meta","equipos","goleadores","fairplay","fixture","suspendidos","playoffs"];
 
 function convert_to_old_format(new_json){
 
 var old_json=[];
 for(var i=1;i<new_json.length;i++)	{
-var sub_json={};	
+var sub_json={};
 for(var j=0;j<new_json[0].length;j++)	{
 try{
 sub_json[new_json[0][j]]=new_json[i][j];
-}catch(ex){}	
-	
+}catch(ex){}
+
 }
 old_json.push(sub_json)	;
-	
+
 }
 
 return old_json;
-	
+
 }
 function fetch_sheet_tab_json(tab_url,tab_name){
 	let xhr = new XMLHttpRequest();
 	console.log(tab_url);
     xhr.open("GET", tab_url, true);
 	 xhr.onload = function() {
-		  
+
 		googledata[tab_name]=convert_to_old_format(JSON.parse(xhr.response).values);
 		var willshowinfo=true;
 		for(var i=0;i<sheetnames.length;i++){
 		if(!googledata[sheetnames[i]]){
 			willshowinfo=false;
-		}	
+		}
 		}
 		if(willshowinfo){
         showInfo(googledata);
@@ -51,8 +51,8 @@ function fetch_sheet_tab_json(tab_url,tab_name){
 	xhr.send();
 
     return xhr.responseText;
-	
-}	
+
+}
 
 function init() {
     console.log('Fetching updated data.');
@@ -65,7 +65,7 @@ for(var i=0;i<sheetnames.length;i++){
 
 	/*
 	var meta=convert_to_old_format(JSON.parse(fetch_sheet_tab_json(public_spreadsheet_url.replace("{sheet_tab_name}","meta"),"meta")).values);
-	
+
 
 	var equipos=convert_to_old_format(JSON.parse(fetch_sheet_tab_json(public_spreadsheet_url.replace("{sheet_tab_name}","equipos"))).values);
 	var goleadores=convert_to_old_format(JSON.parse(fetch_sheet_tab_json(public_spreadsheet_url.replace("{sheet_tab_name}","goleadores"))).values);
@@ -88,21 +88,21 @@ for(var i=0;i<sheetnames.length;i++){
 
   function showInfo(data) {
     console.log(data);
-   
+
     myBase = data;
 	proximaF = myBase.meta[1].Data;
 	totalF =   myBase.meta[2].Data;
-	
+
 	equipos = myBase.equipos;
-	
-	
+
+
 
 	jugadores = myBase.goleadores;
 	amonestados = myBase.fairplay;
 	fixture = myBase.fixture;
 	suspendidos = myBase.suspendidos;
 	playoffs = myBase.playoffs;
-	
+
 	groupedFixture = _.groupBy(fixture, function(fecha) {
       return fecha.Fecha;
     });
@@ -150,7 +150,7 @@ for(var i=0;i<sheetnames.length;i++){
     }
 
     // FIXTURE
-	
+
     for (j = 1; j <= totalF; j++) {
       temphtml = '<div class="fixture-div w-100"><p>Fecha ' + j + ' <span class="poiret">' + groupedFixture[j][0].Dia + '</span></p>'
       // temphtml += '<p>Dia ' + groupedFixture[j][0].Dia + '</p>'
@@ -177,7 +177,7 @@ for(var i=0;i<sheetnames.length;i++){
         }
       }
       temphtml += '</table>';
-	  
+
       $('#fechas').append(temphtml)
     }
 
