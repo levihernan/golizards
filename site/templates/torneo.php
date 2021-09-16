@@ -325,11 +325,11 @@ p.proxDate {
           </div>
 
         <div id="bracketOro" class="bracket bitten" style="display:none">
-          <h2 class="tabla-header">Playoffs</h2>
+          <h2 class="tabla-header">Copa Oro</h2>
           <div class="split split-one mb-3">
-            <div class="round round-one current" id="cuartosCopaOro">
+            <!-- <div class="round round-one current" id="cuartosCopaOro">
                 <div>Cuartos <span class="poiret" id="cuartosFinalOroDate"></span></div>
-            </div>
+            </div> -->
             <div class="round round-two current" id="semiCopaOro">
                 <div>Semifinal <span class="poiret" id="semiFinalOroDate"></span></div>
             </div>
