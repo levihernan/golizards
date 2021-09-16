@@ -41,8 +41,8 @@ p.proxDate {
   'loader loader'
   'equipos jugadores'
   'bracketOro bracketOro'
-  /* 'bracketPlata bracketPlata'
-  'bracketBronze bracketBronze' */
+  'bracketPlata bracketPlata'
+  'bracketBronze bracketBronze'
   'fixture proximafecha'
   'fixture sponsors'
   'fixture fairplay'
@@ -112,8 +112,8 @@ p.proxDate {
     'loader'
     'equipos'
     'bracketOro'
-    /* 'bracketPlata'
-    'bracketBronze' */
+    'bracketPlata'
+    'bracketBronze'
     'proximafecha'
     'jugadores'
     'sponsors'
