@@ -330,10 +330,10 @@ p.proxDate {
             <!-- <div class="round round-one current" id="cuartosCopaOro">
                 <div>Cuartos <span class="poiret" id="cuartosFinalOroDate"></span></div>
             </div> -->
-            <div class="round round-two current" id="semiCopaOro">
+            <div class="round round-one current" id="semiCopaOro">
                 <div>Semifinal <span class="poiret" id="semiFinalOroDate"></span></div>
             </div>
-            <div class="round round-three" id="finalCopaOro">
+            <div class="round round-two" id="finalCopaOro">
               <div>Final <span class="poiret" id="finalOroDate"></span></div>
             </div>
           <div class="trophy">
